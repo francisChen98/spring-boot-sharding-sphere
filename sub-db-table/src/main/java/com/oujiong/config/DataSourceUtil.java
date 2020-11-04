@@ -18,12 +18,12 @@ public final class DataSourceUtil {
 
     private static final String USER_NAME = "root";
 
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "123456";
 
     public static DataSource createDataSource(final String dataSourceName) {
         DruidDataSource result = new DruidDataSource();
-        result.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
-        result.setUrl(String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8", HOST, PORT, dataSourceName));
+        result.setDriverClassName("com.mysql.jdbc.Driver");
+        result.setUrl(String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&useUnicode=true&allowMultiQueries=true&autoReconnect=true", HOST, PORT, dataSourceName));
         result.setUsername(USER_NAME);
         result.setPassword(PASSWORD);
         return result;
