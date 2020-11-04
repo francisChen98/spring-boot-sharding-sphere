@@ -3,6 +3,7 @@ package com.oujiong.service.impl;
 import com.oujiong.entity.User;
 import com.oujiong.mapper.UserMapper;
 import com.oujiong.service.UserService;
+import org.apache.shardingsphere.api.hint.HintManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> list() {
+//        HintManager.getInstance().setMasterRouteOnly();
         List<User> users = userMapper.selectAll();
         return users;
     }
