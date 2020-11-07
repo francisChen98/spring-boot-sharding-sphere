@@ -29,6 +29,18 @@
   </insert>
 
   <insert id="insertForeach" parameterType="java.util.List" useGeneratedKeys="false">
+    insert into tab_user ( name, sex,
+    age, create_time, update_time,
+    status)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.name,jdbcType=VARCHAR}, #{item.sex,jdbcType=VARCHAR},
+      #{item.age,jdbcType=INTEGER}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+      #{item.status,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+
+  <!--<insert id="insertForeach" parameterType="java.util.List" useGeneratedKeys="false">
     insert into tab_user (id, name, sex,
     age, create_time, update_time,
     status)
@@ -38,5 +50,5 @@
       #{item.age,jdbcType=INTEGER}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
       #{item.status,jdbcType=INTEGER})
     </foreach>
-  </insert>
+  </insert>-->
 </mapper>
