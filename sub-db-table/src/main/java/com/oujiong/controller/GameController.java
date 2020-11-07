@@ -33,7 +33,7 @@ public class GameController {
     @PostMapping("save-game")
     public Object saveUser() {
         Game game = new Game();
-        game.setName("francis");
+        game.setName("francis1");
         return gameService.insert(game);
     }
     /**
